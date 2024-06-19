@@ -1,0 +1,35 @@
+     1 00000000                                 [FORMAT "WCOFF"]
+     2 00000000                                 [INSTRSET "i486p"]
+     3 00000000                                 [OPTIMIZE 1]
+     4 00000000                                 [OPTION 1]
+     5 00000000                                 [BITS 32]
+     6 00000000                                 	EXTERN	_sprintf
+     7 00000000                                 	EXTERN	_api_putstr0
+     8 00000000                                 	EXTERN	_api_end
+     9 00000000                                 [FILE "crach6.c"]
+    10                                          [SECTION .data]
+    11 00000000                                 LC0:
+    12 00000000 25 64 00                        	DB	"%d",0x00
+    13                                          [SECTION .text]
+    14 00000000                                 	GLOBAL	_pmain
+    15 00000000                                 _pmain:
+    16 00000000 B8 00000005                     	MOV	EAX,5
+    17 00000005 31 D2                           	XOR	EDX,EDX
+    18 00000007 89 D1                           	MOV	ECX,EDX
+    19 00000009 55                              	PUSH	EBP
+    20 0000000A 99                              	CDQ
+    21 0000000B F7 F9                           	IDIV	ECX
+    22 0000000D 89 E5                           	MOV	EBP,ESP
+    23 0000000F 53                              	PUSH	EBX
+    24 00000010 83 EC 30                        	SUB	ESP,48
+    25 00000013 8D 5D CC                        	LEA	EBX,DWORD [-52+EBP]
+    26 00000016 50                              	PUSH	EAX
+    27 00000017 68 [00000000]                   	PUSH	LC0
+    28 0000001C 53                              	PUSH	EBX
+    29 0000001D E8 [00000000]                   	CALL	_sprintf
+    30 00000022 53                              	PUSH	EBX
+    31 00000023 E8 [00000000]                   	CALL	_api_putstr0
+    32 00000028 E8 [00000000]                   	CALL	_api_end
+    33 0000002D 8B 5D FC                        	MOV	EBX,DWORD [-4+EBP]
+    34 00000030 C9                              	LEAVE
+    35 00000031 C3                              	RET

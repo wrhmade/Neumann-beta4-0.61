@@ -1,0 +1,29 @@
+text size :    153(0x00099)
+data size :     30(0x0001E)
+bss  size :      0(0x00000)
+
+0x00000024 : (.text)
+0x00000024 : _pmain
+0x0000006A : _end
+0x0000007C : _api_putstr0
+0x0000007C : (.text)
+0x0000008A : _api_end
+0x0000008A : (.text)
+0x00000091 : _api_fopen
+0x00000091 : (.text)
+0x0000009F : _api_fread
+0x0000009F : (.text)
+0x000000B5 : __alloca
+0x000000B5 : (.text)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00460000 : (.data)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)

@@ -1,0 +1,54 @@
+     1 00000000                                 [FORMAT "WCOFF"]
+     2 00000000                                 [INSTRSET "i486p"]
+     3 00000000                                 [OPTIMIZE 1]
+     4 00000000                                 [OPTION 1]
+     5 00000000                                 [BITS 32]
+     6 00000000                                 	EXTERN	__alloca
+     7 00000000                                 	EXTERN	_api_fopen
+     8 00000000                                 	EXTERN	_api_end
+     9 00000000                                 	EXTERN	_api_fread
+    10 00000000                                 	EXTERN	_api_putstr0
+    11 00000000                                 [FILE "ttftest.c"]
+    12                                          [SECTION .data]
+    13 00000000                                 LC0:
+    14 00000000 66 6F 6E 74 2E 74 74 66 00      	DB	"font.ttf",0x00
+    15 00000009                                 LC1:
+    16 00000009 66 6F 6E 74 2E 74 74 66 20 6E   	DB	"font.ttf not found.",0x0A,0x00
+       00000013 6F 74 20 66 6F 75 6E 64 2E 0A 
+       0000001D 00 
+    17                                          [SECTION .text]
+    18 00000000                                 	GLOBAL	_pmain
+    19 00000000                                 _pmain:
+    20 00000000 55                              	PUSH	EBP
+    21 00000001 B8 40000000                     	MOV	EAX,1073741824
+    22 00000006 89 E5                           	MOV	EBP,ESP
+    23 00000008 E8 [00000000]                   	CALL	__alloca
+    24 0000000D 68 [00000000]                   	PUSH	LC0
+    25 00000012 E8 [00000000]                   	CALL	_api_fopen
+    26 00000017 5A                              	POP	EDX
+    27 00000018 85 C0                           	TEST	EAX,EAX
+    28 0000001A 74 12                           	JE	L2
+    29 0000001C 68 [00000009]                   	PUSH	LC1
+    30 00000021 E8 00000020                     	CALL	_end
+    31 00000026 58                              	POP	EAX
+    32 00000027                                 L3:
+    33 00000027 E8 [00000000]                   	CALL	_api_end
+    34 0000002C C9                              	LEAVE
+    35 0000002D C3                              	RET
+    36 0000002E                                 L2:
+    37 0000002E 6A 00                           	PUSH	0
+    38 00000030 8D 85 C0000000                  	LEA	EAX,DWORD [-1073741824+EBP]
+    39 00000036 68 40000000                     	PUSH	1073741824
+    40 0000003B 50                              	PUSH	EAX
+    41 0000003C E8 [00000000]                   	CALL	_api_fread
+    42 00000041 83 C4 0C                        	ADD	ESP,12
+    43 00000044 EB E1                           	JMP	L3
+    44 00000046                                 	GLOBAL	_end
+    45 00000046                                 _end:
+    46 00000046 55                              	PUSH	EBP
+    47 00000047 89 E5                           	MOV	EBP,ESP
+    48 00000049 FF 75 08                        	PUSH	DWORD [8+EBP]
+    49 0000004C E8 [00000000]                   	CALL	_api_putstr0
+    50 00000051 59                              	POP	ECX
+    51 00000052 C9                              	LEAVE
+    52 00000053 E9 [00000000]                   	JMP	_api_end

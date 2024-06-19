@@ -1,0 +1,42 @@
+default=0
+timeout 20
+
+default /default
+
+title [1]WBoxOS VGA
+	map --mem /vga.img (fd0)
+	map --hook
+	chainloader (fd0)+1
+	rootnoverify (fd0)
+	map --floppies=1
+	boot
+
+title [2]WBoxOS SVGA
+	map --mem /svga.img (fd0)
+	map --hook
+	chainloader (fd0)+1
+	rootnoverify (fd0)
+	map --floppies=1
+	boot
+
+title [3]WBoxOS XGA
+	map --mem /xga.img (fd0)
+	map --hook
+	chainloader (fd0)+1
+	rootnoverify (fd0)
+	map --floppies=1
+	boot
+
+title [4]WBoxOS SXGA
+	map --mem /sxga.img (fd0)
+	map --hook
+	chainloader (fd0)+1
+	rootnoverify (fd0)
+	map --floppies=1
+	boot
+
+title [5]Reboot
+	reboot
+
+title [6]Shut Down
+	halt

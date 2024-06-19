@@ -1,0 +1,28 @@
+text size :   1316(0x00524)
+data size :     35(0x00023)
+bss  size :      0(0x00000)
+
+0x00000024 : (.text)
+0x00000024 : _pmain
+0x00000056 : _api_putstr0
+0x00000056 : (.text)
+0x00000064 : _api_end
+0x00000064 : (.text)
+0x0000006B : _sprintf
+0x0000006B : (.text)
+0x0000007F : (.text)
+0x000000BB : _strtoul0
+0x0000018E : (.text)
+0x000001B6 : _vsprintf
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000000 : (.data)
+0x00000400 : (.data)
+0x00000403 : (.data)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)
+0x00000000 : (.bss)

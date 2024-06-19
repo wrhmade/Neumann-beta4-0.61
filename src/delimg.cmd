@@ -1,0 +1,1 @@
+del bootfd.img
